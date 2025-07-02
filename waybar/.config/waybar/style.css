@@ -127,7 +127,9 @@ window#waybar {
 #battery.critical {
     color: @maroon;
 }
-
+#tray {
+    color: @text;
+}
 #tray mainbox {
     border-radius: 10px;
 }
