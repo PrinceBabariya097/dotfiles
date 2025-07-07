@@ -10,7 +10,6 @@ if [ -z "$WALLPAPER" ]; then
     exit 1
 fi
 
-echo "Setting wallpaper: $WALLPAPER"
 # Preload the wallpaper first
 hyprctl hyprpaper preload "$WALLPAPER"
 # Then set it as wallpaper
