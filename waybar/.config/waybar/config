@@ -1,96 +1,103 @@
 {
-    // "layer": "top",
-    // "position": "top",
-    "height": 40,
-    "spacing": 8,
-    "margin-top": 8,
-    "margin-left": 8,
-    "margin-right": 8,
+  // "layer": "top",
+  // "position": "top",
+  "height": 40,
+  "spacing": 8,
+  "margin-top": 8,
+  "margin-left": 8,
+  "margin-right": 8,
 
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "networktray",
-        "pulseaudio",
-        "bluetooth",
-        "network",
-        "battery",
-        "tray"
-    ],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "networktray",
+    "pulseaudio",
+    "bluetooth",
+    "network",
+    "battery",
+    "custom/shutdown",
+    "custom/reboot",
+    "tray"
+  ],
 
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5"
-        }
-    },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5"
+    }
+  },
 
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 50
-    },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50
+  },
 
-    "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%Y-%m-%d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "rotate": 0,
+    "format-alt": "{:%A, %B %d, %Y (%R)}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months": "<span color='#aecce6'><b>{}</b></span>",
+        "days": "<span color='#aecce6'><b>{}</b></span>",
+        "weekdays": "<span color='#df373a'><b>{}</b></span>",
+        "today": "<span color='#df373a'><b>{}</b></span>"
+      }
+    }
+  },
 
-    "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "🔇",
-        "format-icons": {
-            "headphone": "🎧",
-            "hands-free": "🎧",
-            "headset": "🎧",
-            "phone": "📞",
-            "portable": "📱",
-            "car": "🚗",
-            "default": ["🔈", "🔉", "🔊"]
-        }
-    },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "🔇",
+    "format-icons": {
+      "headphone": "🎧",
+      "hands-free": "🎧",
+      "headset": "🎧",
+      "phone": "📞",
+      "portable": "📱",
+      "car": "🚗",
+      "default": ["🔈", "🔉", "🔊"]
+    }
+  },
 
-    "network": {
-         "format-wifi": " {essid} ({signalStrength}%)",
-         "format-ethernet": " {ifname}",
-         "format-disconnected": "⚠ Disconnected",
-         "tooltip-format-wifi": "Wi-Fi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}/{cidr}",
-         "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}",
-         "tooltip-format-disconnected": "No Network",
-         "on-click-right": "nm-connection-editor", // Opens a full GUI for network management
-         "on-click": "nm-applet" // Opens the small network applet menu
-    },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ifname}",
+    "format-disconnected": "⚠ Disconnected",
+    "tooltip-format-wifi": "Wi-Fi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}/{cidr}",
+    "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "No Network",
+    "on-click-right": "nm-connection-editor", // Opens a full GUI for network management
+    "on-click": "nm-applet" // Opens the small network applet menu
+  },
 
-    "bluetooth": {
-    "on-click" : "blueman-manager"
-    },
+  "bluetooth": {
+    "on-click": "blueman-manager"
+  },
 
-    "tray": {
+  "tray": {
     "icon-size": 21
-    },
+  },
 
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 🔌",
-        "format-plugged": "{capacity}% 🔌",
-        "format-icons": ["🪫", "🔋"]
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
     },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 🔌",
+    "format-plugged": "{capacity}% 🔌",
+    "format-icons": ["🪫", "🔋"]
+  },
 
-    "networktray": {
+  "networktray": {
     "format-wifi": " {essid} ({signalStrength}%)",
     "format-ethernet": " {ifname}",
     "format-disconnected": "⚠ Disconnected",
@@ -99,5 +106,16 @@
     "tooltip-format-disconnected": "No Network",
     "on-click": "nm-connection-editor", // Opens a full GUI for network management
     "on-click-right": "nm-applet" // Opens the small network applet menu
-    }
+  },
+
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip-format": "Reboot",
+    "on-click": "reboot"
+  },
+  "custom/shutdown": {
+    "format": "⏻",
+    "tooltip-format": "Shutdown",
+    "on-click": "shutdown now"
+  }
 }

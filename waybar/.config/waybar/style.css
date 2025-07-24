@@ -44,7 +44,9 @@ window#waybar {
 #network,
 #bluetooth,
 #battery,
-#tray {
+#tray,
+#custom-reboot,
+#custom-shutdown {
     background-color: transparent;
     border: 2px solid @flamingo;
     border-radius: 10px;
