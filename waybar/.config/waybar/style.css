@@ -27,13 +27,16 @@
 @define-color mantle #181825;
 @define-color crust #11111b;
 
+* {
+    font-family: "JetBrainsMono Nerd Font", "monospace", "Font Awesome 6 Free";
+}
 /* Main waybar window - transparent background */
 window#waybar {
     background-color: transparent;
     border: none;
     font-family: "JetBrains Mono Nerd Font", monospace;
     font-size: 14px;
-    color: #ffffff;
+    color: @text;
 }
 
 /* Individual module styling - bordered boxes */
@@ -44,19 +47,27 @@ window#waybar {
 #network,
 #bluetooth,
 #battery,
-#tray,
 #custom-reboot,
+#custom-brightness,
 #custom-shutdown {
-    background-color: transparent;
-    border: 2px solid @flamingo;
+    background-color: @base;
+    border: 2px solid @pink;
     border-radius: 10px;
     padding: 4px 12px;
-    margin: 0 4px;
+    /* margin: 0 4px; */
+}
+
+#tray {
+    background-color: @surface0;
+    border: 2px solid @pink;
+    border-radius: 10px;
+    padding: 4px 12px;
+    /* margin: 0 4px; */
 }
 
 /* Workspace specific styling */
 #workspaces button {
-    background-color: transparent;
+    background-color: @base;
     border: none;
     border-radius: 10px;
     padding: 4px 8px;
@@ -71,7 +82,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: @blue;
+    background-color: @surface0;
     color: @text;
 }
 
@@ -101,6 +112,10 @@ window#waybar {
 }
 
 #network.disconnected {
+    color: @text;
+}
+
+##network.connected {
     color: @text;
 }
 
