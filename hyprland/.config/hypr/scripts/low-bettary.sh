@@ -65,12 +65,12 @@ set_brightness_level_on_battery() {
                 notify-send "Battery Full" "Your device is fully charged."
                 full_battery_notified=true
             fi
-            brightnessctl set "$BRIGHTNESS_FULL"
+            # brightnessctl set "$BRIGHTNESS_FULL"
         fi
 
     # Handle normal battery levels (restore full brightness)
     else
-        brightnessctl set "$BRIGHTNESS_FULL"
+        # brightnessctl set "$BRIGHTNESS_FULL"
     fi
 }
 
