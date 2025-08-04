@@ -69,7 +69,7 @@ set_brightness_level_on_battery() {
         fi
 
     # Handle normal battery levels (restore full brightness)
-    else
+    # else
         # brightnessctl set "$BRIGHTNESS_FULL"
     fi
 }
