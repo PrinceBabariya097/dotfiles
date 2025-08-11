@@ -8,7 +8,7 @@
   "margin-right": 8,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock"],
+  "modules-center": ["clock", "custom/media"],
   "modules-right": [
     "pulseaudio",
     "custom/brightness",
@@ -49,6 +49,16 @@
         "today": "<span color='#df373a'><b>{}</b></span>"
       }
     }
+  },
+
+  "custom/media": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/media_info.sh",
+    "interval": 2,
+    "on-click": "~/.config/waybar/scripts/run_music_playback.sh",
+    "escape": true,
+    "tooltip": true
   },
 
   "pulseaudio": {
