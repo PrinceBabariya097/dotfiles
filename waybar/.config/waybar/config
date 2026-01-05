@@ -1,40 +1,43 @@
 {
-  // "layer": "top",
-  // "position": "top",
-  "height": 40,
-  "spacing": 8,
-  "margin-top": 8,
-  "margin-left": 8,
-  "margin-right": 8,
-
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock", "custom/media"],
-  "modules-right": [
-    "pulseaudio",
-    "custom/brightness",
-    "bluetooth",
-    "network",
-    "battery",
-    "custom/shutdown",
-    "tray"
-  ],
-
-  "hyprland/workspaces": {
-    "format": " {name} ",
-    "format-icons": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5"
-    }
+  "reload_style_on_change": true,
+  "height": 50,
+  "spacing": 12,
+  "margin-top": 12,
+  "margin-left": 16,
+  "margin-right": 16,
+  "custom/separator": {
+    "format": "  |  ",
+    "interval": "once",
+    "tooltip": false
   },
-
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "group/middle"
+  ],
+  "modules-right": [
+    "group/right"
+  ],
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true
+  },
   "hyprland/window": {
     "format": "{}",
     "max-length": 50
   },
-
+  "group/middle": {
+    "orientation": "horizontal",
+    "modules": [
+      "clock",
+      "custom/separator",
+      "image#album-art",
+      "mpris"
+    ]
+  },
   "clock": {
     "format": "{:%I:%M %p}",
     "rotate": 0,
@@ -50,47 +53,70 @@
       }
     }
   },
-
-  "custom/media": {
-    "format": "{}",
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/media_info.sh",
-    "interval": 2,
-    "on-click": "~/.config/waybar/scripts/run_music_playback.sh",
-    "escape": true,
-    "tooltip": true
+  "mpris": {
+    "format": "{player_icon}  {artist} - {title}",
+    "format-paused": "{status_icon}  <i>{artist} - {title}</i>",
+    "player-icons": {
+      "default": "▶  ",
+      "spotify": "  ",
+      "firefox": "  "
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "max-length": 20
+  },
+  "group/right": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "custom/separator",
+      "bluetooth",
+      "custom/separator",
+      "backlight",
+      "custom/separator",
+      "network",
+      "custom/separator",
+      "battery",
+      "custom/separator",
+      "custom/shutdown",
+      "custom/separator",
+      "tray"
+    ]
   },
 
-  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "🔇",
+"pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "󰝟", 
     "format-icons": {
-      "headphone": "🎧",
-      "hands-free": "🎧",
-      "headset": "🎧",
-      "phone": "📞",
-      "portable": "📱",
-      "car": "🚗",
-      "default": ["🔈", "🔉", "🔊"]
-    }
-  },
+        "headphone": "󰋋",
+        "hands-free": "󰋎",
+        "headset": "󰋎",
+        "phone": "󰏲",
+        "portable": "󰏲",
+        "car": "󰄄",
+        "default": [
+            "<span size='120%'>󰕿 </span>", 
+            "<span size='120%'>󰖀 </span>",
+            "<span size='120%'>󰕾 </span>" 
+        ]
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+},
 
-  "custom/brightness": {
-        "format": "{}",
-        "exec": "~/.config/hypr/scripts/waybar-brightness-level.sh",
-        "interval": 1, // Update every 1 second (or adjust as needed)
-        "return-type": "json",
-        "on-scroll-up": "~/.config/hypr/scripts/waybar-brightness-level.sh up",   // Scroll up to increase
-        "on-scroll-down": "~/.config/hypr/scripts/waybar-brightness-level.sh down", // Scroll down to decrease
-        // You can also add on-click actions if you want:
-        // "on-click": "pavucontrol" // Example: opens a volume mixer (not directly relevant for brightness, but shows an example)
+"backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
 
   "network": {
-    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-wifi": "{icon}    {essid}",
+"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-ethernet": " {ifname}",
-    "format-disconnected": "⚠ Disconnected",
+    "format-disconnected": "󰖪  Disconnected",
     "tooltip-format-wifi": "Wi-Fi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}/{cidr}",
     "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}",
     "tooltip-format-disconnected": "No Network",
@@ -98,12 +124,18 @@
     "on-click": "nm-applet" // Opens the small network applet menu
   },
 
-  "bluetooth": {
+"bluetooth": {
+    "format": "", 
+    "format-connected": "󰂱",
+    "format-disabled": "󰂲",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
     "on-click": "blueman-manager"
-  },
+},
 
   "tray": {
-    "icon-size": 21
+    "icon-size": 18,
+    "spacing": 8,
   },
 
   "battery": {
@@ -112,20 +144,20 @@
       "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 🔌",
-    "format-plugged": "{capacity}% 🔌",
-    "format-icons": ["🪫", "🔋"]
-  },
-
-  "networktray": {
-    "format-wifi": " {essid} ({signalStrength}%)",
-    "format-ethernet": " {ifname}",
-    "format-disconnected": "⚠ Disconnected",
-    "tooltip-format-wifi": "Wi-Fi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}/{cidr}",
-    "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}",
-    "tooltip-format-disconnected": "No Network",
-    "on-click": "nm-connection-editor", // Opens a full GUI for network management
-    "on-click-right": "nm-applet" // Opens the small network applet menu
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰂄",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
   },
 
   "custom/shutdown": {

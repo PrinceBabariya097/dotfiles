@@ -1,184 +1,130 @@
 /* Color Schema */
 
-@define-color rosewater #f5e0dc;
-@define-color flamingo #f2cdcd;
-@define-color pink #f5c2e7;
-@define-color mauve #cba6f7;
-@define-color red #f38ba8;
-@define-color maroon #eba0ac;
-@define-color peach #fab387;
-@define-color yellow #f9e2af;
-@define-color green #a6e3a1;
-@define-color teal #94e2d5;
-@define-color sky #89dceb;
-@define-color sapphire #74c7ec;
-@define-color blue #89b4fa;
-@define-color lavender #b4befe;
-@define-color text #cdd6f4;
-@define-color subtext1 #bac2de;
-@define-color subtext0 #a6adc8;
-@define-color overlay2 #9399b2;
-@define-color overlay1 #7f849c;
-@define-color overlay0 #6c7086;
-@define-color surface2 #585b70;
-@define-color surface1 #45475a;
-@define-color surface0 #313244;
-@define-color base #1e1e2e;
-@define-color mantle #181825;
-@define-color crust #11111b;
+/* Color Palette Variables */
+@define-color base-bg rgba(30, 33, 94, 0.65);
+/* Translucent main bar background */
+@define-color surface-pill rgb(100, 165, 249);
+/* Secondary nested pill background */
+@define-color border-glass rgba(255, 255, 255, 0.08);
+/* Subtle highlight edge */
+
+/* Accents */
+@define-color primary-blue #0e124c;
+/* Active workspace and primary icons */
+@define-color secondary-blue #3d59a1;
+/* Muted or inactive primary elements */
+
+/* Typography */
+@define-color text-main #c0caf5;
+/* High emphasis text and icons */
+@define-color text-muted #565f89;
+/* Low emphasis / sub-header text */
+
+/* Status Colors (if needed for the modules) */
+@define-color success #9ece6a;
+/* Green for charging/connected */
+@define-color warning #e0af68;
+/* Yellow for low battery */
+@define-color critical #f7768e;
+/* Red for alerts */
 
 * {
-    font-family: "JetBrainsMono Nerd Font", "monospace", "Font Awesome 6 Free";
-}
-/* Main waybar window - transparent background */
-window#waybar {
-    background-color: transparent;
-    border: none;
-    font-family: "JetBrains Mono Nerd Font", monospace;
-    font-size: 14px;
-    color: @text;
+  font-family: Google Sans;
+  font-size: 14px;
 }
 
-/* Individual module styling - bordered boxes */
-#workspaces,
-#window,
+window#waybar {
+  border-radius: 28px;
+  background-color: @base-bg;
+  border: 1px solid @border-glass;
+  padding: 12px 16px;
+}
+
+#workspaces {
+  margin-left: 18px;
+  background-color: #232176;
+  border-radius: 28px;
+  padding: 0px 18px;
+}
+
+
+/* Style for all workspace buttons (the "dots") */
+#workspaces button {
+  color: transparent;
+  background-color: @surface-pill;
+  margin: 5px 5px;
+  box-shadow: none;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+
+/* Style for the active workspace */
+#workspaces button.active {
+  padding: 0px 28px;
+  border-radius: 999px;
+  color: @primary-blue;
+  font-weight: 500;
+  background-color: @surface-pill;
+}
+
+#middle,
+#right {
+  background-color: #232176;
+  border-radius: 28px;
+  padding: 0px 18px;
+  color: @text-main;
+  font-weight: 500;
+}
+
 #clock,
-#pulseaudio,
-#network,
-#bluetooth,
-#battery,
-#custom-reboot,
-#custom-brightness,
-#custom-shutdown,
-#custom-media {
-    background-color: @base;
-    border: 2px solid @pink;
-    border-radius: 10px;
-    padding: 4px 12px;
-    /* margin: 0 4px; */
+.album-art,
+.mpris{
+  padding-right: 8px;
 }
 
 #tray {
-    background-color: @surface0;
-    border: 2px solid @pink;
-    border-radius: 10px;
-    padding: 4px 12px;
-    /* margin: 0 4px; */
+    color: @text-main;
+    border-radius: 15px;
 }
 
-/* Workspace specific styling */
-#workspaces button {
-    background-color: @base;
-    border: none;
-    border-radius: 10px;
-    padding: 4px 8px;
-    margin: 0 2px;
-    color: #cdd6f4;
-    transition: all 0.3s ease;
+#backlight {
+  color:  #f9e2af;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+      border-radius: 0;
 }
 
-#workspaces button:hover {
-    background-color: @overlay0;
-    color: @subtext0;
-}
-
-#workspaces button.active {
-    background-color: @surface0;
-    color: @text;
-}
-
-/* Window title */
-#window {
-    color: @text;
-}
-
-/* Clock styling */
-#clock {
-    color: @text;
-    font-weight: bold;
-}
-
-/* Audio module */
-#pulseaudio {
-    color: @text;
-}
-
-#pulseaudio.muted {
-    color: @text;
-}
-
-/* Network module */
-#network {
-    color: @text;
-}
-
-#network.disconnected {
-    color: @text;
-}
-
-##network.connected {
-    color: @text;
-}
-
-/* Bluetooth module */
 #bluetooth {
-    color: @text;
+font-size: 18px;
+min-width: 18px;
 }
 
-#bluetooth.disabled {
-    color: @text;
+
+#pulseaudio > label:first-child {
+    font-size: 18px; /* Size of the icon only */
 }
 
-#bluetooth.connected {
-    color: @text;
-}
-
-/* Battery module */
-#battery {
-    color: @text;
+#tray {
+  color: transparent;
+  padding: 0px 8px;
+  background-color: @surface-pill;
+  border-radius: 999px;
+  margin: 5px 5px;
 }
 
 #battery.warning {
-    color: @yellow;
+  background-color: transparent;
+  color: #000;
 }
 
 #battery.critical {
-    color: @maroon;
-}
-#tray {
-    color: @text;
-}
-#tray mainbox {
-    border-radius: 10px;
+  background-color: transparent;
+  color: #000;
 }
 
-#tray menu {
-    background-color: @crust;
-    /* border: 1px solid @overlay0; */
-    border-radius: 10px;
-    color: @text;
-}
-
-/* Add this to your waybar style.css */
-
-#custom-media.playing {
-    padding-right: 17px;
-}
-
-#custom-media.stopped {
-    background-color: transparent;
-    color: @surface1;
-}
-
-#custom-media:hover {
-    background-color: @surface1;
-    /*transform: scale(1.05);*/
-}
-
-#custom-media.playing:hover {
-    background-color: @surface1;
-}
-
-#custom-media.paused:hover {
-    background-color: @surface1;
+#battery.charging,
+#battery.plugged {
+  color: #9ece6a;
+  background-color: transparent;
 }
