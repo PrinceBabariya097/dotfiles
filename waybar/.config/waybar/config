@@ -84,60 +84,70 @@
       "tray"
     ]
   },
-
-"pulseaudio": {
+  "pulseaudio": {
     "format": "{icon}  {volume}%",
     "format-bluetooth": "{icon} {volume}%",
-    "format-muted": "󰝟", 
+    "format-muted": "󰝟",
     "format-icons": {
-        "headphone": "󰋋",
-        "hands-free": "󰋎",
-        "headset": "󰋎",
-        "phone": "󰏲",
-        "portable": "󰏲",
-        "car": "󰄄",
-        "default": [
-            "<span size='120%'>󰕿 </span>", 
-            "<span size='120%'>󰖀 </span>",
-            "<span size='120%'>󰕾 </span>" 
-        ]
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰏲",
+      "car": "󰄄",
+      "default": [
+        "<span size='120%'>󰕿 </span>",
+        "<span size='120%'>󰖀 </span>",
+        "<span size='120%'>󰕾 </span>"
+      ]
     },
     "on-click": "pavucontrol",
     "scroll-step": 5
-},
-
-"backlight": {
-        "device": "intel_backlight",
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
   "network": {
     "format-wifi": "{icon}    {essid}",
-"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "format-ethernet": " {ifname}",
     "format-disconnected": "󰖪  Disconnected",
     "tooltip-format-wifi": "Wi-Fi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}/{cidr}",
     "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}",
     "tooltip-format-disconnected": "No Network",
-    "on-click-right": "nm-connection-editor", // Opens a full GUI for network management
-    "on-click": "nm-applet" // Opens the small network applet menu
+    "on-click-right": "nm-connection-editor",
+    "on-click": "nm-applet"
   },
-
-"bluetooth": {
-    "format": "", 
+  "bluetooth": {
+    "format": "",
     "format-connected": "󰂱",
     "format-disabled": "󰂲",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
     "on-click": "blueman-manager"
-},
-
+  },
   "tray": {
     "icon-size": 18,
-    "spacing": 8,
+    "spacing": 8
   },
-
   "battery": {
     "states": {
       "warning": 30,
@@ -159,7 +169,6 @@
       "󰁹"
     ]
   },
-
   "custom/shutdown": {
     "format": "⏻",
     "tooltip-format": "Shutdown",

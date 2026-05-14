@@ -1,32 +1,4 @@
-/* Color Schema */
-
-/* Color Palette Variables */
-@define-color base-bg rgba(30, 33, 94, 0.65);
-/* Translucent main bar background */
-@define-color surface-pill rgb(100, 165, 249);
-/* Secondary nested pill background */
-@define-color border-glass rgba(255, 255, 255, 0.08);
-/* Subtle highlight edge */
-
-/* Accents */
-@define-color primary-blue #0e124c;
-/* Active workspace and primary icons */
-@define-color secondary-blue #3d59a1;
-/* Muted or inactive primary elements */
-
-/* Typography */
-@define-color text-main #c0caf5;
-/* High emphasis text and icons */
-@define-color text-muted #565f89;
-/* Low emphasis / sub-header text */
-
-/* Status Colors (if needed for the modules) */
-@define-color success #9ece6a;
-/* Green for charging/connected */
-@define-color warning #e0af68;
-/* Yellow for low battery */
-@define-color critical #f7768e;
-/* Red for alerts */
+@import url("../theme/colors.css");
 
 * {
   font-family: Google Sans;
@@ -42,7 +14,7 @@ window#waybar {
 
 #workspaces {
   margin-left: 18px;
-  background-color: #232176;
+  background-color: @middle-bg;
   border-radius: 28px;
   padding: 0px 18px;
 }
@@ -50,8 +22,8 @@ window#waybar {
 
 /* Style for all workspace buttons (the "dots") */
 #workspaces button {
-  color: transparent;
-  background-color: @surface-pill;
+  color: @text-main;
+  background-color: transparent;
   margin: 5px 5px;
   box-shadow: none;
   border: none;
@@ -63,14 +35,14 @@ window#waybar {
 #workspaces button.active {
   padding: 0px 28px;
   border-radius: 999px;
-  color: @primary-blue;
+  color: @base;
   font-weight: 500;
   background-color: @surface-pill;
 }
 
 #middle,
 #right {
-  background-color: #232176;
+  background-color: @middle-bg;
   border-radius: 28px;
   padding: 0px 18px;
   color: @text-main;
@@ -79,52 +51,53 @@ window#waybar {
 
 #clock,
 .album-art,
-.mpris{
+.mpris {
   padding-right: 8px;
 }
 
 #tray {
-    color: @text-main;
-    border-radius: 15px;
+  color: @text-main;
+  border-radius: 15px;
 }
 
 #backlight {
-  color:  #f9e2af;
+  color: @yellow;
   padding: 0.5rem 1rem;
   margin: 5px 0;
-      border-radius: 0;
+  border-radius: 0;
 }
 
 #bluetooth {
-font-size: 18px;
-min-width: 18px;
+  font-size: 18px;
+  min-width: 18px;
 }
 
 
-#pulseaudio > label:first-child {
-    font-size: 18px; /* Size of the icon only */
+#pulseaudio>label:first-child {
+  font-size: 18px;
+  /* Size of the icon only */
 }
 
 #tray {
-  color: transparent;
+  color: @text-main;
   padding: 0px 8px;
-  background-color: @surface-pill;
+  background-color: transparent;
   border-radius: 999px;
   margin: 5px 5px;
 }
 
 #battery.warning {
   background-color: transparent;
-  color: #000;
+  color: @black;
 }
 
 #battery.critical {
   background-color: transparent;
-  color: #000;
+  color: @black;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: #9ece6a;
+  color: @success;
   background-color: transparent;
 }

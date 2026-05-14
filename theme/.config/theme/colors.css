@@ -1,0 +1,24 @@
+/* Extracted Theme CSS */
+@define-color base #8d4656;
+@define-color primary-blue #090b11;
+@define-color middle-bg #8d4656; 
+@define-color surface-pill #090b11;
+@define-color base-bg rgba(141, 70, 86, 0.65);
+@define-color border-glass rgba(255, 255, 255, 0.08);
+
+/* Fallbacks from Mocha */
+@define-color rosewater #f5e0dc;
+@define-color pink #f5c2e7;
+@define-color red #f38ba8;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color blue #090b11;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color crust #11111b;
+
+/* Waybar specifics */
+@define-color text-main #cdd6f4;
+@define-color black #000000;
+@define-color success #9ece6a;

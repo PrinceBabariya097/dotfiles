@@ -1,0 +1,87 @@
+@import "~/.config/theme/colors.rasi"
+
+configuration {
+    show-icons: true;
+    font: "Google Sans 12";
+}
+
+window {
+    width: 650px;
+    border-radius: 28px;
+    background-color: @base;
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.15);
+    padding: 24px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 16px;
+}
+
+inputbar {
+    background-color: rgba(255, 255, 255, 0.15); /* Search Bar elevation */
+    border-radius: 999px;
+    padding: 16px 24px; /* Increased search bar height */
+    children: [prompt, entry];
+    spacing: 12px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @text-main;
+    font: "Google Sans 16";
+    vertical-align: 0.5;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @text-main;
+    placeholder: "Search clipboard history...";
+    placeholder-color: rgba(255, 255, 255, 0.4);
+    font: "Google Sans 16";
+    vertical-align: 0.5;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 8;
+    spacing: 12px; /* M3 request: vertical padding */
+    border: 0px;
+    scrollbar: false;
+}
+
+element {
+    background-color: transparent;
+    padding: 16px 20px; /* Vastly increased breathing room M3 */
+    border-radius: 12px; /* Material Design 3 List Item */
+    margin: 4px 8px; /* Internal Floating Container Margin */
+    border: 0px; 
+    spacing: 16px; /* Space between the thumbnail and the text */
+}
+
+element normal normal, element alternate normal {
+    background-color: transparent;
+}
+
+element selected normal {
+    background-color: #4A4458; /* Muted Selection Block requested */
+}
+
+element-icon {
+    background-color: transparent;
+    size: 32px; /* Physical space reserved for rendering live 4K images */
+    vertical-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: @text-main;
+    vertical-align: 0.5;
+    markup: true; /* Strictly required to decode Pango text highlights */
+}
+
+element-text selected {
+    text-color: #ffffff; /* Contrast guarantee */
+}

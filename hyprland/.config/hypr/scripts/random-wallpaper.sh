@@ -14,3 +14,9 @@ fi
 hyprctl hyprpaper preload "$WALLPAPER"
 # Then set it as wallpaper
 hyprctl hyprpaper wallpaper ",$WALLPAPER"
+
+# Update the symlink so hyprlock knows where to look
+ln -sf "$WALLPAPER" "$HOME/.cache/current_wallpaper"
+
+# Extract colors and update theme dynamically
+~/dotfiles/theme/color-extractor/color-extractor "$WALLPAPER" &

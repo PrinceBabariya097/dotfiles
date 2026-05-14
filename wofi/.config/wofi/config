@@ -1,0 +1,8 @@
+show=drun
+show_all=true
+prompt=Search apps...
+allow_images=true
+image_size=36
+columns=1
+hide_scroll=true
+lines=8

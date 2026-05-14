@@ -1,0 +1,86 @@
+@import "~/.config/theme/colors.rasi"
+
+configuration {
+    show-icons: true;
+    display-drun: "🔍";
+    drun-display-format: "{name}\n<span size='10pt' alpha='65%'>{generic}</span>";
+    font: "Google Sans 12";
+}
+
+window {
+    width: 650px;
+    border-radius: 28px;
+    background-color: @base;
+    border: 3px;
+    border-color: @primary-blue;
+    padding: 30px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 25px;
+}
+
+inputbar {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 14px 20px;
+    children: [prompt, entry];
+    spacing: 15px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @text-main;
+    font: "Google Sans 20"; /* Made search icon slightly bigger specifically */
+    vertical-align: 0.5;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @text-main;
+    placeholder: "Search apps...";
+    placeholder-color: rgba(255, 255, 255, 0.5);
+    font: "Google Sans 16";
+    vertical-align: 0.5;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 7;
+    spacing: 4px;
+    border: 0px;
+    scrollbar: false;
+}
+
+element {
+    background-color: transparent;
+    padding: 16px 20px; /* Increased top/bottom padding to make generous capsule */
+    border-radius: 16px;
+    spacing: 30px; /* Force an extra massive gap between icon and text */
+}
+
+element normal normal, element alternate normal {
+    background-color: transparent;
+}
+
+element selected normal {
+    background-color: #3f4354; /* Unhooked from wallpaper to guarantee 'expensive' look per feedback */
+}
+
+element-icon {
+    background-color: transparent;
+    size: 48px; /* Locks icons to a strict 48x48 box, absolutely solving any wobble */
+    vertical-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: @text-main;
+    vertical-align: 0.5;
+}
+
+element-text selected {
+    text-color: #ffffff; /* Guarantees pure white pop against the new 3F4354 background */
+}
