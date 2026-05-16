@@ -1,9 +1,9 @@
 /* Extracted Theme CSS */
-@define-color base #8d4656;
-@define-color primary-blue #090b11;
-@define-color middle-bg #8d4656; 
-@define-color surface-pill #090b11;
-@define-color base-bg rgba(141, 70, 86, 0.65);
+@define-color base #080707;
+@define-color primary-blue #4e4e4e;
+@define-color middle-bg #080707; 
+@define-color surface-pill #4e4e4e;
+@define-color base-bg rgba(8, 7, 7, 0.65);
 @define-color border-glass rgba(255, 255, 255, 0.08);
 
 /* Fallbacks from Mocha */
@@ -13,7 +13,7 @@
 @define-color peach #fab387;
 @define-color yellow #f9e2af;
 @define-color green #a6e3a1;
-@define-color blue #090b11;
+@define-color blue #4e4e4e;
 @define-color lavender #b4befe;
 @define-color text #cdd6f4;
 @define-color crust #11111b;

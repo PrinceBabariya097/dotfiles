@@ -1,8 +1,8 @@
 * {
-    base: #8d4656;
-    primary-blue: #090b11;
-    middle-bg: #8d4656;
-    surface-pill: #090b11;
+    base: #080707;
+    primary-blue: #4e4e4e;
+    middle-bg: #080707;
+    surface-pill: #4e4e4e;
     text-main: #cdd6f4;
     text-muted: #cdd6f480;
     transparent: #00000000;

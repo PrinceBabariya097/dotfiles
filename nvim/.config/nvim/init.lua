@@ -180,7 +180,7 @@ require("lazy").setup({
       local servers = {
         "ts_ls", "lua_ls", "pyright",
         "clangd", "bashls", "html",
-        "cssls", "jsonls",
+        "cssls", "jsonls", "nixd"
       }
       for _, server in ipairs(servers) do
         vim.lsp.config(server, { capabilities = capabilities })
