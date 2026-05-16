@@ -5,6 +5,7 @@
   inputs = {
     # The massive community repository for stable/pre-compiled apps
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixgl.url   = "github:nix-community/nixGL";         
 
     # The bleeding-edge source code directly from the developers
     hyprland.url = "github:hyprwm/Hyprland";
@@ -13,11 +14,17 @@
   };
 
   # 2. THE OUTPUTS: What are we building?
-  outputs = { self, nixpkgs, hyprland, hyprpaper, hypridle }: 
+  outputs = { self, nixpkgs, nixgl, hyprland, hyprpaper, hypridle }: 
   let
     # Define your system architecture
     system = "x86_64-linux";
-    
+
+ # Allow unfree + nixGL overlay so nixGL can see your host GPU driver
+  nixglPkgs = import nixpkgs {
+    inherit system;
+    overlays = [ nixgl.overlay ];
+    config.allowUnfree = true;  # needed if you have nvidia
+  };   
     # Load the standard packages for that architecture
     pkgs = nixpkgs.legacyPackages.${system};
   in {
@@ -36,6 +43,8 @@
       waybar = pkgs.waybar;
       dunst = pkgs.dunst;
       rofi = pkgs.rofi-wayland;
+      uwsm = pkgs.uwsm;
+      nixgl  = nixglPkgs.nixgl.auto.nixGLDefault;
     };
   };
 }
