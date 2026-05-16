@@ -158,9 +158,9 @@
 [urgency_low]
     # Low urgency - subtle, using muted colors
     # Material Design surface variant
-    background = "#09bdfd"
-    foreground = "#11111b"
-    frame_color = "#023518"
+    background = "#121212"
+    foreground = "#cdd6f4"
+    frame_color = "#e49b18"
     timeout = 4
     # Icon for notifications with low urgency
     #default_icon = /path/to/icon
@@ -168,9 +168,9 @@
 [urgency_normal]
     # Normal urgency - secondary blue background
     # Material Design primary container
-    background = "#09bdfd"
-    foreground = "#11111b"
-    frame_color = "#023518"
+    background = "#121212"
+    foreground = "#cdd6f4"
+    frame_color = "#e49b18"
     timeout = 6
     # Icon for notifications with normal urgency
     #default_icon = /path/to/icon
