@@ -1,0 +1,20 @@
+return {
+    background = "rgb({{background | replace('#', '') | lower}})",
+    foreground = "rgb({{foreground | replace('#', '') | lower}})",
+    color0  = "rgb({{color0 | replace('#', '') | lower}})",
+    color1  = "rgb({{color1 | replace('#', '') | lower}})",
+    color2  = "rgb({{color2 | replace('#', '') | lower}})",
+    color3  = "rgb({{color3 | replace('#', '') | lower}})",
+    color4  = "rgb({{color4 | replace('#', '') | lower}})",
+    color5  = "rgb({{color5 | replace('#', '') | lower}})",
+    color6  = "rgb({{color6 | replace('#', '') | lower}})",
+    color7  = "rgb({{color7 | replace('#', '') | lower}})",
+    color8  = "rgb({{color8 | replace('#', '') | lower}})",
+    color9  = "rgb({{color9 | replace('#', '') | lower}})",
+    color10 = "rgb({{color10 | replace('#', '') | lower}})",
+    color11 = "rgb({{color11 | replace('#', '') | lower}})",
+    color12 = "rgb({{color12 | replace('#', '') | lower}})",
+    color13 = "rgb({{color13 | replace('#', '') | lower}})",
+    color14 = "rgb({{color14 | replace('#', '') | lower}})",
+    color15 = "rgb({{color15 | replace('#', '') | lower}})"
+}
