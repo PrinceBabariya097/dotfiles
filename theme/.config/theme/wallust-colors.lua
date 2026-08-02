@@ -1,0 +1,20 @@
+return {
+    background = "rgb(04040a)",
+    foreground = "rgb(ffb6c4)",
+    color0  = "rgb(05050c)",
+    color1  = "rgb(203121)",
+    color2  = "rgb(334d88)",
+    color3  = "rgb(657352)",
+    color4  = "rgb(5f92c7)",
+    color5  = "rgb(91121d)",
+    color6  = "rgb(e48694)",
+    color7  = "rgb(ffaab8)",
+    color8  = "rgb(bf6875)",
+    color9  = "rgb(203121)",
+    color10 = "rgb(334d88)",
+    color11 = "rgb(657352)",
+    color12 = "rgb(5f92c7)",
+    color13 = "rgb(91121d)",
+    color14 = "rgb(e48694)",
+    color15 = "rgb(f7ccd3)"
+}

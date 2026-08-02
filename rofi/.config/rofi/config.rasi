@@ -1,4 +1,4 @@
-@import "~/.config/theme/colors.rasi"
+@import "~/.config/theme/wallust-colors.rasi"
 
 configuration {
     show-icons: true;
@@ -10,9 +10,9 @@ configuration {
 window {
     width: 650px;
     border-radius: 28px;
-    background-color: @base;
+    background-color: @background;
     border: 3px;
-    border-color: @primary-blue;
+    border-color: @color4;
     padding: 30px;
 }
 
@@ -22,7 +22,7 @@ mainbox {
 }
 
 inputbar {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: @color0;
     border-radius: 999px;
     padding: 14px 20px;
     children: [prompt, entry];
@@ -31,16 +31,16 @@ inputbar {
 
 prompt {
     background-color: transparent;
-    text-color: @text-main;
+    text-color: @foreground;
     font: "Google Sans 20"; /* Made search icon slightly bigger specifically */
     vertical-align: 0.5;
 }
 
 entry {
     background-color: transparent;
-    text-color: @text-main;
+    text-color: @foreground;
     placeholder: "Search apps...";
-    placeholder-color: rgba(255, 255, 255, 0.5);
+    placeholder-color: @color8;
     font: "Google Sans 16";
     vertical-align: 0.5;
 }
@@ -66,7 +66,7 @@ element normal normal, element alternate normal {
 }
 
 element selected normal {
-    background-color: #3f4354; /* Unhooked from wallpaper to guarantee 'expensive' look per feedback */
+    background-color: @color4; /* Unhooked from wallpaper to guarantee 'expensive' look per feedback */
 }
 
 element-icon {
@@ -77,10 +77,10 @@ element-icon {
 
 element-text {
     background-color: transparent;
-    text-color: @text-main;
+    text-color: @foreground;
     vertical-align: 0.5;
 }
 
 element-text selected {
-    text-color: #ffffff; /* Guarantees pure white pop against the new 3F4354 background */
+    text-color: @background; /* Guarantees pure white pop against the new 3F4354 background */
 }

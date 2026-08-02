@@ -1,0 +1,182 @@
+{
+  "reload_style_on_change": true,
+  "height": 50,
+  "spacing": 12,
+  "margin-top": 12,
+  "margin-left": 16,
+  "margin-right": 16,
+  "custom/separator": {
+    "format": "  |  ",
+    "interval": "once",
+    "tooltip": false
+  },
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "group/middle"
+  ],
+  "modules-right": [
+    "group/right"
+  ],
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50
+  },
+  "group/middle": {
+    "orientation": "horizontal",
+    "modules": [
+      "clock",
+      "custom/separator",
+      "image#album-art",
+      "mpris"
+    ]
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "rotate": 0,
+    "format-alt": "{:%A, %B %d, %Y (%R)}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months": "<span color='#aecce6'><b>{}</b></span>",
+        "days": "<span color='#aecce6'><b>{}</b></span>",
+        "weekdays": "<span color='#df373a'><b>{}</b></span>",
+        "today": "<span color='#df373a'><b>{}</b></span>"
+      }
+    }
+  },
+  "mpris": {
+    "format": "{player_icon}  {artist} - {title}",
+    "format-paused": "{status_icon}  <i>{artist} - {title}</i>",
+    "player-icons": {
+      "default": "▶  ",
+      "spotify": "  ",
+      "firefox": "  "
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "max-length": 20
+  },
+  "group/right": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "custom/separator",
+      "bluetooth",
+      "custom/separator",
+      "backlight",
+      "custom/separator",
+      "network",
+      "custom/separator",
+      "battery",
+      "custom/separator",
+      "custom/shutdown",
+      "custom/separator",
+      "tray"
+    ]
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰏲",
+      "car": "󰄄",
+      "default": [
+        "<span size='120%'>󰕿 </span>",
+        "<span size='120%'>󰖀 </span>",
+        "<span size='120%'>󰕾 </span>"
+      ]
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "network": {
+    "format-wifi": "{icon}    {essid}",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-ethernet": " {ifname}",
+    "format-disconnected": "󰖪  Disconnected",
+    "tooltip-format-wifi": "Wi-Fi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}/{cidr}",
+    "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "No Network",
+    "on-click-right": "nm-connection-editor",
+    "on-click": "nm-applet"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": "󰂱",
+    "format-disabled": "󰂲",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰂄",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "custom/shutdown": {
+    "format": "⏻",
+    "tooltip-format": "Shutdown",
+    "on-click": "shutdown now"
+  }
+<<<<<<< HEAD
+}
+=======
+}
+
+>>>>>>> master

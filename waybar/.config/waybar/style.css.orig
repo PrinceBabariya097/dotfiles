@@ -1,0 +1,157 @@
+<<<<<<< HEAD
+@import url("../theme/colors.css");
+=======
+@import url("../theme/wallust-colors.css");
+>>>>>>> master
+
+* {
+  font-family: Google Sans;
+  font-size: 14px;
+}
+
+window#waybar {
+  border-radius: 28px;
+<<<<<<< HEAD
+  background-color: @base-bg;
+  border: 1px solid @border-glass;
+=======
+  background-color: @background;
+  border: 1px solid @color8;
+>>>>>>> master
+  padding: 12px 16px;
+}
+
+#workspaces {
+  margin-left: 18px;
+<<<<<<< HEAD
+  background-color: @middle-bg;
+=======
+>>>>>>> master
+  border-radius: 28px;
+  padding: 0px 18px;
+}
+
+
+/* Style for all workspace buttons (the "dots") */
+#workspaces button {
+<<<<<<< HEAD
+  color: @text-main;
+  background-color: transparent;
+=======
+  color: @foreground;
+>>>>>>> master
+  margin: 5px 5px;
+  box-shadow: none;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+
+/* Style for the active workspace */
+#workspaces button.active {
+  padding: 0px 28px;
+  border-radius: 999px;
+<<<<<<< HEAD
+  color: @base;
+  font-weight: 500;
+  background-color: @surface-pill;
+=======
+  color: @background;
+  font-weight: 500;
+  background-color: @color4;
+>>>>>>> master
+}
+
+#middle,
+#right {
+<<<<<<< HEAD
+  background-color: @middle-bg;
+  border-radius: 28px;
+  padding: 0px 18px;
+  color: @text-main;
+=======
+  border-radius: 28px;
+  padding: 0px 18px;
+  color: @foreground;
+>>>>>>> master
+  font-weight: 500;
+}
+
+#clock,
+.album-art,
+.mpris {
+  padding-right: 8px;
+}
+
+#tray {
+<<<<<<< HEAD
+  color: @text-main;
+=======
+  color: @foreground;
+>>>>>>> master
+  border-radius: 15px;
+}
+
+#backlight {
+<<<<<<< HEAD
+  color: @yellow;
+=======
+  color: @color3;
+>>>>>>> master
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  border-radius: 0;
+}
+
+#bluetooth {
+  font-size: 18px;
+  min-width: 18px;
+}
+
+
+#pulseaudio>label:first-child {
+  font-size: 18px;
+  /* Size of the icon only */
+}
+
+#tray {
+<<<<<<< HEAD
+  color: @text-main;
+  padding: 0px 8px;
+  background-color: transparent;
+=======
+  color: @foreground;
+  padding: 0px 8px;
+>>>>>>> master
+  border-radius: 999px;
+  margin: 5px 5px;
+}
+
+#battery.warning {
+<<<<<<< HEAD
+  background-color: transparent;
+  color: @black;
+}
+
+#battery.critical {
+  background-color: transparent;
+  color: @black;
+=======
+  color: @color3;
+}
+
+#battery.critical {
+  color: @color1;
+>>>>>>> master
+}
+
+#battery.charging,
+#battery.plugged {
+<<<<<<< HEAD
+  color: @success;
+  background-color: transparent;
+}
+=======
+  color: @color2;
+}
+>>>>>>> master

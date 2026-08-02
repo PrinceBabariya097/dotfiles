@@ -35,7 +35,7 @@ vim.keymap.set("n", "<leader>bD", ":bdelete!<CR>",          { desc = "Force Dele
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", { desc = "Switch Buffer" })
 
 -- file tree
-vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>",    { desc = "Toggle File Explorer" })
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>",    { desc = "Toggle File Explorer" })
 
 -- telescope
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find Files" })
@@ -123,8 +123,43 @@ require("lazy").setup({
   { "neovim/nvim-lspconfig" },
 
   -- mason
-  { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
+{
+
+  "mason-org/mason.nvim",
+  cmd = "Mason",
+  keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+  build = ":MasonUpdate",
+  opts_extend = { "ensure_installed" },
+  opts = {
+    ensure_installed = {
+      "stylua",
+      "shfmt",
+    },
+  },
+  ---@param opts MasonSettings | {ensure_installed: string[]}
+  config = function(_, opts)
+    require("mason").setup(opts)
+    local mr = require("mason-registry")
+    mr:on("package:install:success", function()
+      vim.defer_fn(function()
+        -- trigger FileType event to possibly load this newly installed LSP server
+        require("lazy.core.handler.event").trigger({
+          event = "FileType",
+          buf = vim.api.nvim_get_current_buf(),
+        })
+      end, 100)
+    end)
+
+    mr.refresh(function()
+      for _, tool in ipairs(opts.ensure_installed) do
+        local p = mr.get_package(tool)
+        if not p:is_installed() then
+          p:install()
+        end
+      end
+    end)
+  end,
+},
 
   -- noice (command palette UI) -- wilder removed, noice is enough
   { "folke/noice.nvim",
@@ -204,15 +239,3 @@ require("lazy").setup({
 
 })
 
--- ============================================
--- 7. MASON SETUP
--- ============================================
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "ts_ls", "lua_ls", "pyright",
-    "clangd", "gopls", "bashls",
-    "html", "cssls", "jsonls",
-  },
-  automatic_installation = true,
-})

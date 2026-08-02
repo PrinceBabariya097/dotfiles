@@ -1,4 +1,4 @@
-@import url("../theme/colors.css");
+@import url("../theme/wallust-colors.css");
 
 * {
   font-family: Google Sans;
@@ -7,14 +7,13 @@
 
 window#waybar {
   border-radius: 28px;
-  background-color: @base-bg;
-  border: 1px solid @border-glass;
+  background-color: @background;
+  border: 1px solid @color8;
   padding: 12px 16px;
 }
 
 #workspaces {
   margin-left: 18px;
-  background-color: @middle-bg;
   border-radius: 28px;
   padding: 0px 18px;
 }
@@ -22,8 +21,7 @@ window#waybar {
 
 /* Style for all workspace buttons (the "dots") */
 #workspaces button {
-  color: @text-main;
-  background-color: transparent;
+  color: @foreground;
   margin: 5px 5px;
   box-shadow: none;
   border: none;
@@ -35,17 +33,16 @@ window#waybar {
 #workspaces button.active {
   padding: 0px 28px;
   border-radius: 999px;
-  color: @base;
+  color: @background;
   font-weight: 500;
-  background-color: @surface-pill;
+  background-color: @color4;
 }
 
 #middle,
 #right {
-  background-color: @middle-bg;
   border-radius: 28px;
   padding: 0px 18px;
-  color: @text-main;
+  color: @foreground;
   font-weight: 500;
 }
 
@@ -56,12 +53,12 @@ window#waybar {
 }
 
 #tray {
-  color: @text-main;
+  color: @foreground;
   border-radius: 15px;
 }
 
 #backlight {
-  color: @yellow;
+  color: @color3;
   padding: 0.5rem 1rem;
   margin: 5px 0;
   border-radius: 0;
@@ -79,25 +76,21 @@ window#waybar {
 }
 
 #tray {
-  color: @text-main;
+  color: @foreground;
   padding: 0px 8px;
-  background-color: transparent;
   border-radius: 999px;
   margin: 5px 5px;
 }
 
 #battery.warning {
-  background-color: transparent;
-  color: @black;
+  color: @color3;
 }
 
 #battery.critical {
-  background-color: transparent;
-  color: @black;
+  color: @color1;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: @success;
-  background-color: transparent;
+  color: @color2;
 }

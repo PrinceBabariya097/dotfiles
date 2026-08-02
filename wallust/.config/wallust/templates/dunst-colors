@@ -1,0 +1,20 @@
+[global]
+    # The default border color (using your primary accent color)
+    frame_color = "{{color4}}"
+    # The line that separates multiple notifications
+    separator_color = "{{color8}}"
+
+[urgency_low]
+    background = "{{background}}"
+    foreground = "{{foreground}}"
+    frame_color = "{{color2}}" # Greenish/accent border for low urgency
+
+[urgency_normal]
+    background = "{{background}}"
+    foreground = "{{foreground}}"
+    frame_color = "{{color4}}" # Blueish/accent border for normal urgency
+
+[urgency_critical]
+    background = "{{color1}}"  # Red background for critical alerts
+    foreground = "{{background}}"
+    frame_color = "{{color9}}"

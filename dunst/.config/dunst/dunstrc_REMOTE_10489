@@ -1,0 +1,238 @@
+[global]
+    ### Display ###
+
+    # Which monitor should the notifications be displayed on.
+    monitor = 0
+
+    # Display notification on focused monitor.  Possible modes are:
+    #   mouse: follow mouse pointer
+    #   keyboard: follow window with keyboard focus
+    #   none: don't follow anything
+    follow = mouse
+
+    ### Geometry ###
+    
+    # Dynamic width between 300-500px, 5 notifications max height
+    # Positioned 12px from top-right corner (Material Design spacing)
+    width = (300, 500)
+    height = (0, 300)
+    origin = top-right
+    offset = (12, 12)
+
+    # Show how many messages are currently hidden (because of geometry).
+    indicate_hidden = yes
+
+    # Don't shrink window if it's smaller than the width
+    shrink = no
+
+    # Transparency (0-100). Material Design uses subtle transparency
+    transparency = 5
+
+    # Draw a line of "separator_height" pixel height between two notifications.
+    # Set to 0 to disable. Material Design uses subtle dividers
+    separator_height = 2
+
+    # Padding between text and separator (Material Design uses 16dp grid)
+    padding = 16
+
+    # Horizontal padding
+    horizontal_padding = 20
+
+    # Frame width - Material Design uses subtle borders
+    frame_width = 0
+
+    # Corner radius for rounded corners (Material Design 3 uses 12-16dp)
+    corner_radius = 12
+
+    # Define a color for the separator.
+    separator_color = "#565f89"
+
+    # Sort messages by urgency
+    sort = yes
+
+    # Don't remove messages if the user is idle for longer than idle_threshold seconds
+    idle_threshold = 120
+
+    ### Progress bar ###
+    
+    # Material Design 3 progress bars
+    progress_bar = true
+    progress_bar_height = 12
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 300
+    progress_bar_max_width = 500
+    progress_bar_corner_radius = 6
+
+    ### Text ###
+
+    # Google Sans font as specified
+    font = Google Sans 11
+
+    # Line height for better readability (Material Design uses 1.5 line height)
+    line_height = 0
+
+    # Enable markup for rich text formatting
+    markup = full
+
+    # Format with bold title and body
+    # Material Design emphasizes clear hierarchy
+    format = "<b>%s</b>\n%b"
+
+    # Alignment of message text
+    alignment = left
+
+    # Show age of message if older than show_age_threshold seconds
+    show_age_threshold = 60
+
+    # Word wrap for long messages
+    word_wrap = yes
+
+    # Don't ignore newlines
+    ignore_newline = no
+
+    # Stack duplicate notifications
+    stack_duplicates = true
+
+    # Hide the count of merged notifications
+    hide_duplicate_count = false
+
+    # Display indicators for URLs (U) and actions (A)
+    show_indicators = yes
+
+    ### Icons ###
+
+    # Material Design places icons on the left
+    icon_position = left
+    
+    # Minimum icon size (Material Design uses 24dp)
+    min_icon_size = 24
+
+    # Maximum icon size (Material Design uses 48dp for notifications)
+    max_icon_size = 48
+
+    # Icon theme and paths
+    icon_theme = "Adwaita, breeze"
+    enable_recursive_icon_lookup = true
+
+    ### History ###
+
+    # Should a notification popped up from history be sticky or timeout
+    sticky_history = yes
+
+    # Maximum amount of notifications kept in history
+    history_length = 50
+
+    ### Misc/Advanced ###
+
+    # dmenu path
+    dmenu = /usr/bin/dmenu -p dunst:
+
+    # Browser for opening urls in context menu
+    browser = /usr/bin/xdg-open
+
+    # Always run rule-defined scripts
+    always_run_script = true
+
+    # Define the title of the windows spawned by dunst
+    title = Dunst
+
+    # Define the class of the windows spawned by dunst
+    class = Dunst
+
+    # Don't print notification on startup
+    startup_notification = true 
+
+    # Force Xinerama (legacy, keep disabled)
+    force_xinerama = false
+    
+    ### Mouse actions ###
+    
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_current
+    mouse_right_click = close_all
+
+# Experimental features
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    # Low urgency - subtle, using muted colors
+    # Material Design surface variant
+    background = "#293848"
+    foreground = "#cdd6f4"
+    frame_color = "#6d6c6e"
+    timeout = 4
+    # Icon for notifications with low urgency
+    #default_icon = /path/to/icon
+
+[urgency_normal]
+    # Normal urgency - secondary blue background
+    # Material Design primary container
+    background = "#293848"
+    foreground = "#cdd6f4"
+    frame_color = "#6d6c6e"
+    timeout = 6
+    # Icon for notifications with normal urgency
+    #default_icon = /path/to/icon
+
+[urgency_critical]
+    # Critical urgency - uses critical red
+    # Material Design error container
+    background = "#f7768e"
+    foreground = "#0e124c"
+    frame_color = "#f7768e"
+    timeout = 0
+    # Icon for notifications with critical urgency
+    #default_icon = /path/to/icon
+
+### Custom rules for different notification types ###
+
+# Success notifications (e.g., downloads complete, updates finished)
+[success]
+    summary = "*omplete*"
+    background = "#9ece6a"
+    foreground = "#0e124c"
+    frame_color = "#9ece6a"
+    timeout = 5
+
+# Warning notifications (e.g., low battery, low storage)
+[warning]
+    summary = "*arning*"
+    background = "#e0af68"
+    foreground = "#0e124c"
+    frame_color = "#e0af68"
+    timeout = 8
+
+# Battery low notification
+[battery_low]
+    summary = "*attery*"
+    body = "*[Ll]ow*"
+    background = "#e0af68"
+    foreground = "#0e124c"
+    timeout = 0
+
+# Network notifications
+[network]
+    appname = "NetworkManager"
+    background = "#3d59a1"
+    foreground = "#c0caf5"
+    timeout = 5
+
+# Volume notifications
+[volume]
+    summary = "*olume*"
+    background = "#0e124c"
+    foreground = "#c0caf5"
+    timeout = 2
+
+# Music/Media notifications
+[media]
+    appname = "Spotify"
+    appname = "vlc"
+    appname = "mpv"
+    background = "#3d59a1"
+    foreground = "#c0caf5"
+    timeout = 5
+
+# vim: ft=cfg
+

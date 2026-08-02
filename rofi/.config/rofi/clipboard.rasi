@@ -1,4 +1,4 @@
-@import "~/.config/theme/colors.rasi"
+@import "~/.config/theme/wallust-colors.rasi"
 
 configuration {
     show-icons: true;
@@ -8,9 +8,9 @@ configuration {
 window {
     width: 650px;
     border-radius: 28px;
-    background-color: @base;
+    background-color: @background;
     border: 1px;
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: @color8;
     padding: 24px;
 }
 
@@ -20,7 +20,7 @@ mainbox {
 }
 
 inputbar {
-    background-color: rgba(255, 255, 255, 0.15); /* Search Bar elevation */
+    background-color: @color0; /* Search Bar elevation */
     border-radius: 999px;
     padding: 16px 24px; /* Increased search bar height */
     children: [prompt, entry];
@@ -29,16 +29,16 @@ inputbar {
 
 prompt {
     background-color: transparent;
-    text-color: @text-main;
+    text-color: @foreground;
     font: "Google Sans 16";
     vertical-align: 0.5;
 }
 
 entry {
     background-color: transparent;
-    text-color: @text-main;
+    text-color: @foreground;
     placeholder: "Search clipboard history...";
-    placeholder-color: rgba(255, 255, 255, 0.4);
+    placeholder-color: @color8;
     font: "Google Sans 16";
     vertical-align: 0.5;
 }
@@ -66,7 +66,7 @@ element normal normal, element alternate normal {
 }
 
 element selected normal {
-    background-color: #4A4458; /* Muted Selection Block requested */
+    background-color: @color4; /* Muted Selection Block requested */
 }
 
 element-icon {
@@ -77,11 +77,11 @@ element-icon {
 
 element-text {
     background-color: transparent;
-    text-color: @text-main;
+    text-color: @foreground;
     vertical-align: 0.5;
     markup: true; /* Strictly required to decode Pango text highlights */
 }
 
 element-text selected {
-    text-color: #ffffff; /* Contrast guarantee */
+    text-color: @background; /* Contrast guarantee */
 }
